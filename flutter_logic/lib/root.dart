@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_logic/screens/image_selection.dart';
+import 'package:flutter_logic/screens/multy_selection.dart';
 import 'package:flutter_logic/screens/singele_selection.dart';
 import 'package:flutter_logic/screens/toggel_selection.dart';
 
@@ -17,6 +18,7 @@ class _RootState extends State<Root> {
     const SingelSelcetion(),
     const ImageSelection(),
     const ToggelSelection(),
+    const MultySelection(),
   ];
 
   @override
