@@ -64,6 +64,8 @@ class _SingelSelcetionState extends State<SingelSelcetion> {
               onTap: () => setState(() {
                 slectIndex = index;
               }),
+
+              
               child: Stack(
                 children: [
                   slectIndex == index
