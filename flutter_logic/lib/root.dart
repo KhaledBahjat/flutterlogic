@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_logic/screens/image_selection.dart';
 import 'package:flutter_logic/screens/singele_selection.dart';
 import 'package:flutter_logic/screens/toggel_selection.dart';
 
@@ -14,6 +15,7 @@ class _RootState extends State<Root> {
   int selectedIndex = 0;
   final List<Widget> screens = [
     const SingelSelcetion(),
+    const ImageSelection(),
     const ToggelSelection(),
   ];
 
@@ -21,6 +23,7 @@ class _RootState extends State<Root> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: screens,
         onPageChanged: (val) {
