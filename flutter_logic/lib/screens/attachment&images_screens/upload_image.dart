@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UploadImage extends StatefulWidget {
   const UploadImage({super.key});
@@ -8,6 +9,14 @@ class UploadImage extends StatefulWidget {
 }
 
 class _UploadImageState extends State<UploadImage> {
+  // upload image fun
+
+  Future<void> _uploadImage() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,12 +24,9 @@ class _UploadImageState extends State<UploadImage> {
       body: Center(
         child: Column(
           children: [
-
-
             SizedBox(
               height: 80,
             ),
-
 
             Container(
               width: 180,
@@ -31,15 +37,12 @@ class _UploadImageState extends State<UploadImage> {
               ),
             ),
 
-
             SizedBox(
               height: 15,
             ),
 
-
-
             GestureDetector(
-              onTap: (){},
+              onTap: _uploadImage,
               child: Container(
                 padding: EdgeInsets.all(10),
                 height: 50,
@@ -57,8 +60,6 @@ class _UploadImageState extends State<UploadImage> {
                 ),
               ),
             ),
-
-            
           ],
         ),
       ),
