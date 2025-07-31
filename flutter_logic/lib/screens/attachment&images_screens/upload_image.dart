@@ -70,6 +70,9 @@ class _UploadImageState extends State<UploadImage> {
                 ),
               ),
             ),
+
+
+            
             SizedBox(
               height: 15,
             ),
