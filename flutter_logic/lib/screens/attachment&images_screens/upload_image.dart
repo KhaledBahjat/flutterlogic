@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -10,11 +12,14 @@ class UploadImage extends StatefulWidget {
 
 class _UploadImageState extends State<UploadImage> {
   // upload image fun
-
+  XFile? selectedImage;
   Future<void> _uploadImage() async {
-    final pickedFile = await ImagePicker().pickImage(
+    final pickedImage = await ImagePicker().pickImage(
       source: ImageSource.gallery,
     );
+    setState(() {
+      selectedImage = pickedImage;
+    });
   }
 
   @override
@@ -35,12 +40,17 @@ class _UploadImageState extends State<UploadImage> {
                 color: Colors.green.shade700,
                 borderRadius: BorderRadius.circular(10),
               ),
+              child: selectedImage == null
+                  ? null
+                  : Image.file(
+                      File(selectedImage!.path),
+                    ),
             ),
 
             SizedBox(
               height: 15,
             ),
-
+            // Upload
             GestureDetector(
               onTap: _uploadImage,
               child: Container(
@@ -51,7 +61,7 @@ class _UploadImageState extends State<UploadImage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
-                  'Upload Image',
+                  selectedImage != null ? 'Change Image' : 'Upload Image',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -60,6 +70,34 @@ class _UploadImageState extends State<UploadImage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 15,
+            ),
+            //  Remove
+            selectedImage == null
+                ? SizedBox.shrink()
+                : GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedImage = null;
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        'Remove ',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
           ],
         ),
       ),
