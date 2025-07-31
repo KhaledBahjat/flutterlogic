@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_logic/screens/attachment&images_screens/upload_image.dart';
+import 'package:flutter_logic/screens/attachment&images_screens/upload_multi_images.dart';
 import 'package:flutter_logic/screens/selection_screens/image_selection.dart';
 import 'package:flutter_logic/screens/selection_screens/multy_selection.dart';
 import 'package:flutter_logic/screens/selection_screens/singele_selection.dart';
@@ -23,6 +24,7 @@ class _RootState extends State<Root> {
     const MultySelection(),
     // attachment
     const UploadImage(),
+    const UploadMultiImages(),
   ];
 
   @override
