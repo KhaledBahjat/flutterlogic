@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logic/screens/image_selection.dart';
-import 'package:flutter_logic/screens/multy_selection.dart';
-import 'package:flutter_logic/screens/singele_selection.dart';
-import 'package:flutter_logic/screens/toggel_selection.dart';
+import 'package:flutter_logic/screens/attachment&images_screens/upload_image.dart';
+import 'package:flutter_logic/screens/selection_screens/image_selection.dart';
+import 'package:flutter_logic/screens/selection_screens/multy_selection.dart';
+import 'package:flutter_logic/screens/selection_screens/singele_selection.dart';
+import 'package:flutter_logic/screens/selection_screens/toggel_selection.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -15,10 +16,13 @@ class _RootState extends State<Root> {
   final PageController controller = PageController();
   int selectedIndex = 0;
   final List<Widget> screens = [
+    // Selection
     const SingelSelcetion(),
     const ImageSelection(),
     const ToggelSelection(),
     const MultySelection(),
+    // attachment
+    const UploadImage(),
   ];
 
   @override
