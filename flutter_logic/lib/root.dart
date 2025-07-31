@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_logic/screens/attachment&images_screens/upload_file.dart';
 import 'package:flutter_logic/screens/attachment&images_screens/upload_image.dart';
 import 'package:flutter_logic/screens/attachment&images_screens/upload_multi_images.dart';
 import 'package:flutter_logic/screens/selection_screens/image_selection.dart';
@@ -25,6 +26,7 @@ class _RootState extends State<Root> {
     // attachment
     const UploadImage(),
     const UploadMultiImages(),
+    const UploadFile(),
   ];
 
   @override
